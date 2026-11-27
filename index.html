@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#4A2DF0"><title>Edwin Benítez | Mi Portafolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js'</script>
+<style>
+:root{--ink:#14102B;--paper:#F1EEFF;--violet:#4A2DF0;--violet-d:#2E1BB8;--sun:#FFD43B;--mint:#3DE0B0;--pink:#FF9CCB;--lav:#BBAEFF;--white:#fff;--disp:'Bricolage Grotesque','Arial Black',system-ui,sans-serif;--body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+.bar{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--sun);transform:scaleX(0);transform-origin:0 50%;z-index:100}
+
+/* nav */
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;padding:6px 6px 6px 18px;background:var(--paper);border:2px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink);max-width:calc(100% - 24px)}
+.brand{font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:-.02em;margin-right:10px;white-space:nowrap}
+.links{display:flex;gap:2px}.links a{padding:8px 14px;border-radius:999px;font-weight:700;font-size:14px;transition:background .2s}.links a:hover{background:var(--lav)}.links a.on{background:var(--ink);color:var(--paper)}
+.menu{display:none;border:0;background:var(--ink);color:var(--paper);width:38px;height:38px;border-radius:50%;font-size:16px;cursor:pointer}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border:2px solid var(--ink);border-radius:999px;background:var(--sun);color:var(--ink);font:800 15px var(--body);box-shadow:4px 4px 0 var(--ink);transition:transform .18s,box-shadow .18s;cursor:pointer;will-change:transform}
+.btn:hover{box-shadow:7px 7px 0 var(--ink)}.btn:active{box-shadow:0 0 0 var(--ink)}
+.btn.ghost{background:var(--paper)}.btn.primary{background:var(--sun)}
+
+/* hero */
+.hero{position:relative;background:var(--violet);color:var(--paper);padding:130px 0 90px;border-radius:0 0 56px 56px;overflow:hidden;isolation:isolate}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle,#ffffff26 1.5px,transparent 1.6px) 0 0/26px 26px;-webkit-mask:linear-gradient(120deg,#000 0,transparent 70%);mask:linear-gradient(120deg,#000 0,transparent 70%)}
+.hero-in{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;margin:0 0 26px;padding:7px 14px;border:2px solid var(--paper);border-radius:999px;font-weight:700;font-size:14px}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 #3DE0B0aa;animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px #3DE0B000}100%{box-shadow:0 0 0 0 #3DE0B000}}
+.name{margin:0;font-family:var(--disp);font-weight:700;font-size:clamp(70px,12.6vw,186px);line-height:.84;letter-spacing:-.045em}
+.name .ln{display:block;white-space:nowrap}.name .ch{display:inline-block;font-variation-settings:'wght' 700;will-change:font-variation-settings}
+.name .ln:nth-child(2){color:var(--sun)}
+.lead{max-width:34em;margin:28px 0 30px;font-size:19px;color:#E6E0FF}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.facts{display:flex;gap:34px;flex-wrap:wrap;list-style:none;padding:0;margin:44px 0 0}
+.facts b{display:block;font-family:var(--disp);font-size:30px;line-height:1.1;letter-spacing:-.03em}.facts span{font-size:14px;color:#CFC6FF}
+
+.stage{position:relative;height:500px;display:grid;place-items:center;perspective:1000px}
+.ring{position:absolute;width:470px;height:470px;animation:spin 28s linear infinite}
+.ring text{font:700 22px var(--disp);fill:var(--paper);letter-spacing:.02em}
+.disc{position:absolute;width:330px;height:330px;border-radius:50%;background:var(--sun);transform:translate(26px,18px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.idcard{position:relative;width:290px;z-index:2;transform-style:preserve-3d;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}.idcard.drag{cursor:grabbing}
+.face{padding:24px;border:2px solid var(--ink);border-radius:22px;background:var(--paper);color:var(--ink);box-shadow:8px 8px 0 var(--ink);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face.back{position:absolute;inset:0;transform:rotateY(180deg);display:grid;place-items:center;text-align:center;background:var(--mint)}
+.face.back .mono{font:800 74px/1 var(--disp);letter-spacing:-.05em}.face.back h2{margin:6px 0 0;font:800 22px var(--disp)}.face.back p{margin:2px 0 0;font-size:14px}
+.idtop{display:flex;justify-content:space-between;font-weight:700;font-size:13px}
+.avatar{width:92px;height:92px;margin:20px 0 14px;border:2px solid var(--ink);border-radius:20px;overflow:hidden;background:var(--lav)}.avatar img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
+.idcard h2{margin:0;font:800 26px/1.1 var(--disp);letter-spacing:-.03em}.idcard p{margin:2px 0 0;font-size:14px;color:#4b4570}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.mini div{padding:10px 12px;border:2px solid var(--ink);border-radius:12px}.mini div:first-child{background:var(--sun)}.mini div:last-child{background:var(--pink)}.mini b{display:block;font:800 18px var(--disp)}.mini small{font-size:12px}
+.hint{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:13px;color:#D8D0FF;pointer-events:none}
+
+/* section basics */
+.sec{padding:110px 0}
+.h2{margin:0;font-family:var(--disp);font-weight:800;font-size:clamp(38px,6vw,84px);line-height:.95;letter-spacing:-.04em;max-width:14em}
+.js .h2 span.in-h{display:inline-block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.h2 .mask{display:block;overflow:hidden;padding-bottom:.08em}.js .h2.in .in-h{transform:none}
+.sub{max-width:30em;margin:18px 0 0;font-size:18px;color:#4b4570}
+
+/* about */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start;margin-top:48px}
+.statement{margin:0;font:600 clamp(24px,3vw,38px)/1.2 var(--disp);letter-spacing:-.025em}
+.copy{margin:0 0 16px;font-size:17px;max-width:34em}
+
+/* skills */
+.skills{background:var(--ink);color:var(--paper);padding:110px 0;border-radius:56px;margin:0 12px;overflow:hidden}
+.skills .sub{color:#BDB5E8}
+.marq{margin:56px 0 64px;display:grid;gap:10px;transform:rotate(-2deg);width:112%;margin-left:-6%}
+.row{display:flex;width:max-content;animation:mq 38s linear infinite}.row.rev{animation-direction:reverse;animation-duration:46s}
+.row:hover{animation-play-state:paused}
+.row span{font:800 clamp(44px,7.5vw,104px)/1.1 var(--disp);letter-spacing:-.04em;padding:0 .35em;white-space:nowrap}
+.row.a span{color:var(--paper)}.row.b span{color:transparent;-webkit-text-stroke:2px var(--mint)}
+.row i{font-style:normal;color:var(--sun);align-self:center;font-size:.5em}
+@keyframes mq{to{transform:translateX(-50%)}}
+.langs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.lang{--rx:0deg;--ry:0deg;position:relative;padding:22px 22px 24px;min-height:270px;border:2px solid var(--paper);border-radius:24px;color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;transform:perspective(800px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .25s ease-out,box-shadow .25s;box-shadow:0 0 0 var(--paper)}
+.lang:hover{box-shadow:8px 8px 0 var(--paper)}
+.lang.py{background:var(--lav)}.lang.js{background:var(--sun)}.lang.kt{background:var(--mint)}.lang.sw{background:var(--pink)}
+.glyph{font:800 92px/.9 var(--disp);letter-spacing:-.06em}
+.lang h3{margin:0;font:800 26px var(--disp);letter-spacing:-.03em}.lang p{margin:2px 0 0;font-size:15px;font-weight:500}
+.js .pop{opacity:0;transform:translateY(50px) scale(.9) rotate(-3deg)}
+.js .pop.in{opacity:1;transform:perspective(800px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:opacity .4s calc(var(--i)*110ms),transform .7s cubic-bezier(.34,1.56,.64,1) calc(var(--i)*110ms),box-shadow .25s}
+.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.group{padding:26px;border:2px dashed #6c63a8;border-radius:24px}
+.group h3{margin:0 0 16px;font:800 22px var(--disp);letter-spacing:-.02em}
+.group.t h3{color:var(--sun)}.group.f h3{color:var(--mint)}.group.p h3{color:var(--pink)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{padding:8px 15px;border:2px solid currentColor;border-radius:999px;font-weight:700;font-size:15px;color:var(--paper);transition:transform .2s,background .2s,color .2s}
+.group.t .pill:hover{background:var(--sun);color:var(--ink);border-color:var(--sun)}.group.f .pill:hover{background:var(--mint);color:var(--ink);border-color:var(--mint)}.group.p .pill:hover{background:var(--pink);color:var(--ink);border-color:var(--pink)}
+.pill:hover{transform:translateY(-3px) rotate(-3deg)}
+
+/* projects */
+.pj-index{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:46px 0 56px}
+.pj-index a{display:flex;flex-direction:column;padding:14px 16px;border:2px solid var(--ink);border-radius:16px;font:800 17px var(--disp);letter-spacing:-.02em;box-shadow:4px 4px 0 var(--ink);transition:transform .18s,box-shadow .18s}
+.pj-index a:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.pj-index a:nth-child(1){background:var(--lav)}.pj-index a:nth-child(2){background:var(--sun)}.pj-index a:nth-child(3){background:var(--mint)}.pj-index a:nth-child(4){background:var(--pink)}
+.pj-index small{font:500 13px var(--body);letter-spacing:0}.pj-index b{display:none}
+.pj-list{display:grid;gap:56px}
+.pj{display:grid;grid-template-columns:.9fr 1.1fr;background:var(--white);border:2px solid var(--ink);border-radius:28px;box-shadow:10px 10px 0 var(--ink);overflow:hidden;scroll-margin-top:100px}
+.pj:nth-child(even){grid-template-columns:1.1fr .9fr}.pj:nth-child(even) .pj-media{order:2;border-right:0;border-left:2px solid var(--ink)}
+.pj-media{position:relative;display:block;min-height:360px;height:100%;border-right:2px solid var(--ink);overflow:hidden;background:var(--ink)}
+.pj-media .preview{position:absolute;inset:0;height:100%;min-height:0;overflow:hidden;background:var(--ink)}
+.pj-media .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.pj-media:hover .shot{transform:scale(1.06) translate(var(--px,0),var(--py,0))}
+.pj-media:before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,transparent 60%,#14102B55);pointer-events:none}
+.open-badge{position:absolute;z-index:3;right:16px;top:16px;padding:9px 15px;border:2px solid var(--ink);border-radius:999px;background:var(--sun);color:var(--ink);font-weight:800;font-size:14px;box-shadow:3px 3px 0 var(--ink);transition:transform .2s}
+.pj-media:hover .open-badge{transform:translate(-2px,-2px) rotate(-2deg)}
+.live{position:absolute;left:0;top:0;width:1000px;height:760px;border:0;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .5s;background:#fff}.live.on{opacity:1}
+.pj-body{padding:34px;display:grid;gap:20px;align-content:start}
+.pj-body header{display:block}.pj-num{display:none}
+.pj-body h3{margin:0;font:800 clamp(30px,3.6vw,46px)/1 var(--disp);letter-spacing:-.04em}
+.pj-tag{margin:6px 0 0;font-size:16px;color:var(--violet);font-weight:700}
+.pj-meta{display:flex;gap:10px;flex-wrap:wrap;margin:0}.pj-meta div{padding:6px 13px;border:2px solid var(--ink);border-radius:999px;background:var(--paper)}
+.pj-meta dt{display:inline;font-size:13px;color:#5a5480;margin-right:6px}.pj-meta dd{display:inline;margin:0;font-weight:800;font-size:14px}
+.pj-sec{display:block;padding:0;border:0}.pj-body h4{margin:0 0 8px;font:800 17px var(--disp);letter-spacing:-.01em;color:var(--violet)}
+.pj-body p{margin:0;font-size:16px;max-width:38em}
+.pj-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pj-body ul,.pj-body ol{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.pj-body li{font-size:15px;line-height:1.4}.chk li{position:relative;padding-left:26px}.chk li:before{content:"✓";position:absolute;left:0;top:0;width:19px;height:19px;border-radius:50%;background:var(--mint);font-size:12px;font-weight:800;display:grid;place-items:center;line-height:1}
+.steps{counter-reset:s;grid-template-columns:1fr 1fr;gap:10px!important}
+.steps li{counter-increment:s;position:relative;padding:11px 12px 11px 46px;border:2px solid var(--ink);border-radius:14px;background:var(--paper);font-size:14.5px}
+.steps li:before{content:counter(s);position:absolute;left:11px;top:10px;width:25px;height:25px;border-radius:50%;background:var(--ink);color:var(--sun);font:800 14px var(--disp);display:grid;place-items:center}
+.tags{display:flex;gap:8px;flex-wrap:wrap}.tags span{padding:5px 12px;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:700;font-size:13px}
+.pj-body .btn{justify-self:start}
+
+/* experience */
+.xp{margin-top:50px;border-top:2px solid var(--ink)}
+.xrow{position:relative;display:grid;grid-template-columns:200px 1fr;gap:30px;padding:30px 12px;border-bottom:2px solid var(--ink);overflow:hidden;isolation:isolate}
+.xrow:before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sun);transform:scaleY(0);transform-origin:50% 100%;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.xrow:hover:before{transform:scaleY(1)}
+.xrow time{font:800 34px/1 var(--disp);letter-spacing:-.04em}.xrow h3{margin:0 0 6px;font:800 26px/1.1 var(--disp);letter-spacing:-.03em}.xrow p{margin:0;max-width:38em;font-size:16px}
+
+/* contact */
+.contact{background:var(--sun);border-radius:56px;margin:0 12px;padding:100px 0;overflow:hidden}
+.contact .h2{max-width:12em}
+.mail{display:inline-block;margin:34px 0 8px;font:800 clamp(26px,5.6vw,76px)/1.05 var(--disp);letter-spacing:-.045em;background:linear-gradient(var(--ink),var(--ink)) 0 100%/0 .09em no-repeat;transition:background-size .5s cubic-bezier(.2,.8,.2,1);word-break:break-all}
+.mail:hover{background-size:100% .09em}
+.contact p{margin:0 0 30px;font-size:18px;max-width:30em}
+.foot{padding:34px 0 40px;font-weight:700}.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media(max-width:980px){.hero-in{grid-template-columns:1fr}.stage{height:480px}.langs{grid-template-columns:1fr 1fr}.groups{grid-template-columns:1fr}.about{grid-template-columns:1fr;gap:26px}.pj,.pj:nth-child(even){grid-template-columns:1fr}.pj:nth-child(even) .pj-media{order:0;border-left:0}.pj-media{min-height:250px;height:250px;border-right:0;border-bottom:2px solid var(--ink)}.pj:nth-child(even) .pj-media{border-bottom:2px solid var(--ink)}.pj-index{grid-template-columns:1fr 1fr}.xrow{grid-template-columns:1fr;gap:8px}}
+@media(max-width:700px){.wrap{width:calc(100% - 32px)}.nav{padding:5px 5px 5px 16px;width:calc(100% - 24px);justify-content:space-between}.menu{display:block}.links{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:var(--paper);border:2px solid var(--ink);border-radius:22px;padding:8px;box-shadow:4px 4px 0 var(--ink)}.links.open{display:flex}.links a{padding:12px 14px}.hero{padding:104px 0 56px;border-radius:0 0 34px 34px}.stage{height:440px}.ring{width:400px;height:400px}.disc{width:280px;height:280px}.idcard{width:260px}.sec{padding:76px 0}.skills,.contact{border-radius:34px;padding:72px 0}.langs{gap:10px}.lang{min-height:210px;padding:16px}.glyph{font-size:66px}.lang h3{font-size:21px}.pj-body{padding:22px}.pj-cols,.steps{grid-template-columns:1fr}.pj{box-shadow:6px 6px 0 var(--ink)}.pj-list{gap:40px}.facts{gap:22px}.row span{-webkit-text-stroke-width:1.5px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .h2 span.in-h{transform:none}.js .pop{opacity:1;transform:none}}
+</style></head><body>
+<div class="bar" id="bar"></div>
+<header class="nav"><a class="brand" href="#home">Mi Portafolio</a><button class="menu" id="menu" aria-label="Abrir menú" aria-expanded="false">☰</button><nav class="links" id="links"><a href="#about">Perfil</a><a href="#skills">Habilidades</a><a href="#work">Proyectos</a><a href="#experience">Experiencia</a><a href="#contact">Contacto</a></nav></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-in" id="heroin">
+<div><p class="status"><i></i>Disponible para oportunidades</p>
+<h1 class="name" id="name" aria-label="Edwin Benítez"><span class="ln" aria-hidden="true">Edwin</span><span class="ln" aria-hidden="true">Benítez</span></h1>
+<p class="lead">Desarrollador web y de aplicaciones con 2 años de experiencia. Transformo ideas en productos digitales con interfaces cuidadas, tecnología y propósito.</p>
+<div class="cta"><a class="btn mag" href="#work">Ver proyectos ↓</a><a class="btn ghost mag" href="CV_Edwin_Natanael_Benitez_Guerrero.pdf" download>Descargar CV</a></div>
+<ul class="facts"><li><b>2+</b><span>años de experiencia</span></li><li><b>Web + App</b><span>áreas de desarrollo</span></li><li><b>México</b><span>disponible remoto</span></li></ul></div>
+<div class="stage" id="stage"><div class="disc"></div>
+<svg class="ring" viewBox="0 0 470 470" aria-hidden="true"><defs><path id="rc" d="M235,235 m-205,0 a205,205 0 1,1 410,0 a205,205 0 1,1 -410,0"/></defs><text><textPath href="#rc">Python ✦ JavaScript ✦ Kotlin ✦ Swift ✦ React ✦ Supabase ✦ HTML ✦ CSS ✦ Git ✦</textPath></text></svg>
+<div class="idcard" id="idcard"><div class="face front"><div class="idtop"><span>Mi Portafolio</span><span>2026</span></div><div class="avatar"><img alt="Foto de Edwin" src="foto-edwin.jpg"></div><h2>Edwin Benítez</h2><p>Desarrollador independiente · México</p><div class="mini"><div><b>2 años</b><small>de experiencia</small></div><div><b>4 lenguajes</b><small>y más</small></div></div></div>
+<div class="face back"><div><div class="mono">EB</div><h2>Mi Portafolio</h2><p>Edwin Benítez · 2026</p></div></div></div>
+<div class="hint">Arrastra la tarjeta para girarla</div></div>
+</div></section>
+
+<section class="sec" id="about"><div class="wrap"><h2 class="h2 wipe"><span class="mask"><span class="in-h">Diseño, lógica</span></span><span class="mask"><span class="in-h">y desarrollo.</span></span></h2>
+<div class="about"><p class="statement">Soy Edwin Natanael Benítez Guerrero, desarrollador independiente. Me interesa crear productos digitales que combinen funcionalidad, claridad visual y una experiencia memorable.</p>
+<div><p class="copy">Tengo 2 años de experiencia en desarrollo web y de aplicaciones: interfaces, lógica de interacción y construcción de productos digitales. Me gusta aprender herramientas nuevas, resolver problemas y cuidar tanto el funcionamiento como la presentación de cada proyecto.</p><p class="copy">Mi experiencia laboral en atención al cliente, ventas y operación me da comunicación, organización y enfoque en las necesidades de las personas.</p></div></div></div></section>
+
+<section class="skills" id="skills"><div class="wrap"><h2 class="h2 wipe"><span class="mask"><span class="in-h">Todo lo que uso</span></span><span class="mask"><span class="in-h">para construir.</span></span></h2><p class="sub">Cuatro lenguajes de programación, las herramientas del día a día y las habilidades que ponen todo a funcionar con personas.</p></div>
+<div class="marq" aria-hidden="true"><div class="row a"><span>Python</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Swift</span><i>✦</i><span>React</span><i>✦</i><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>Supabase</span><i>✦</i><span>Git / GitHub</span><i>✦</i><span>UI / UX</span><i>✦</i><span>Frontend</span><i>✦</i><span>Mobile</span><i>✦</i><span>Python</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Swift</span><i>✦</i><span>React</span><i>✦</i><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>Supabase</span><i>✦</i><span>Git / GitHub</span><i>✦</i><span>UI / UX</span><i>✦</i><span>Frontend</span><i>✦</i><span>Mobile</span><i>✦</i></div><div class="row b rev"><span>React</span><i>✦</i><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>Supabase</span><i>✦</i><span>Git / GitHub</span><i>✦</i><span>UI / UX</span><i>✦</i><span>Frontend</span><i>✦</i><span>Mobile</span><i>✦</i><span>Python</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Swift</span><i>✦</i><span>React</span><i>✦</i><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>Supabase</span><i>✦</i><span>Git / GitHub</span><i>✦</i><span>UI / UX</span><i>✦</i><span>Frontend</span><i>✦</i><span>Mobile</span><i>✦</i><span>Python</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Swift</span><i>✦</i></div></div>
+<div class="wrap"><div class="langs">
+<article class="lang py pop" style="--i:0"><div class="glyph">Py</div><div><h3>Python</h3><p>Programación y lógica</p></div></article>
+<article class="lang js pop" style="--i:1"><div class="glyph">JS</div><div><h3>JavaScript</h3><p>Desarrollo web</p></div></article>
+<article class="lang kt pop" style="--i:2"><div class="glyph">Kt</div><div><h3>Kotlin</h3><p>Aplicaciones Android</p></div></article>
+<article class="lang sw pop" style="--i:3"><div class="glyph">Sw</div><div><h3>Swift</h3><p>Plataformas Apple</p></div></article></div>
+<div class="groups">
+<div class="group t pop" style="--i:0"><h3>Tecnologías</h3><div class="pills"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">React</span><span class="pill">Git / GitHub</span><span class="pill">Supabase</span></div></div>
+<div class="group f pop" style="--i:1"><h3>Áreas de trabajo</h3><div class="pills"><span class="pill">UI / UX</span><span class="pill">Frontend</span><span class="pill">Mobile</span><span class="pill">Responsive design</span></div></div>
+<div class="group p pop" style="--i:2"><h3>Habilidades personales</h3><div class="pills"><span class="pill">Comunicación</span><span class="pill">Organización</span><span class="pill">Atención al cliente</span><span class="pill">Ventas</span><span class="pill">Operación</span></div></div></div></div></section>
+
+<section class="sec" id="work"><div class="wrap"><h2 class="h2 wipe"><span class="mask"><span class="in-h">Proyectos que</span></span><span class="mask"><span class="in-h">puedes probar.</span></span></h2><p class="sub">Cuatro proyectos de distintos sectores. Cada uno explica qué es, sus funciones, sus beneficios y cómo probarlo.</p>
+<nav class="pj-index reveal" aria-label="Índice de proyectos"><a href="#pj1">MIZU NO OTO<small>Hotelería / Turismo</small></a><a href="#pj2">INVICTUS GYM<small>Fitness / Salud</small></a><a href="#pj3">NOVA STORE<small>Comercio electrónico</small></a><a href="#pj4">CORTE FINO<small>Servicios / Belleza</small></a></nav><div class="pj-list">
+<article class="pj reveal" id="pj1">
+<a class="pj-media" href="mizu-no-oto.html" target="_blank" rel="noopener" aria-label="Abrir MIZU NO OTO"><div class="preview"><img class="shot" alt="Mizu no Oto" src="prev-mizu.jpg"></div><span class="open-badge">Abrir proyecto ↗</span></a>
+<div class="pj-body">
+<header><div><h3>MIZU NO OTO</h3><p class="pj-tag">Ryokan japonés y onsen en el Monte Fuji</p></div></header>
+<dl class="pj-meta"><div><dt>Industria</dt><dd>Hotelería / Turismo</dd></div><div><dt>Tipo</dt><dd>Sitio web + reservas</dd></div></dl>
+<div class="pj-sec"><h4>Qué es</h4><p>Sitio inmersivo para un ryokan tradicional japonés. Presenta habitaciones, aguas termales, gastronomía y experiencias, y permite preparar una reserva con precio calculado al instante.</p></div>
+<div class="pj-cols"><div class="pj-sec"><h4>Funciones clave</h4><ul class="chk"><li>Catálogo de 3 habitaciones con precio por noche en yenes y pesos</li><li>Calculadora de estancia: fechas, huéspedes y total</li><li>Solicitud de reserva con alergias, plan gastronómico y traslado</li><li>Simulador de pago de prueba</li><li>Selector de idioma EN / JP / ES</li><li>Preguntas frecuentes e información de llegada</li></ul></div><div class="pj-sec"><h4>Beneficios</h4><ul class="chk"><li>Experiencia visual que transmite la identidad del lugar</li><li>El huésped conoce el costo total antes de reservar</li><li>Reduce mensajes previos al reunir todos los datos en una solicitud</li></ul></div></div>
+<div class="pj-sec"><h4>Cómo probarlo</h4><ol class="steps"><li>Recorre el sitio y conoce habitaciones, onsen y kaiseki.</li><li>Ve a <b>Reservas</b> y elige fechas, huéspedes y habitación.</li><li>Revisa el resumen y el total de tu estancia.</li><li>Toca <b>Confirmar reserva</b> o prueba el <b>Pago de prueba</b>.</li></ol></div>
+<div class="tags"><span>React</span><span>JavaScript</span><span>LocalStorage</span><span>Responsive UI</span></div>
+<a class="btn primary" href="mizu-no-oto.html" target="_blank" rel="noopener">Abrir MIZU NO OTO ↗</a>
+</div></article>
+<article class="pj reveal" id="pj2">
+<a class="pj-media" href="invictus-gym.html" target="_blank" rel="noopener" aria-label="Abrir INVICTUS GYM"><div class="preview"><img class="shot" alt="Vista previa de invictus-gym" style="object-position:left top" src="prev-invictus.jpg"></div><span class="open-badge">Abrir proyecto ↗</span></a>
+<div class="pj-body">
+<header><div><h3>INVICTUS GYM</h3><p class="pj-tag">Gimnasio y fitness</p></div></header>
+<dl class="pj-meta"><div><dt>Industria</dt><dd>Fitness / Salud</dd></div><div><dt>Tipo</dt><dd>Sitio web de conversión</dd></div></dl>
+<div class="pj-sec"><h4>Qué es</h4><p>Sitio para un gimnasio que presenta membresías, clases, coaches e instalaciones, y convierte visitantes en clientes con formularios claros.</p></div>
+<div class="pj-cols"><div class="pj-sec"><h4>Funciones clave</h4><ul class="chk"><li>Planes Starter, Pro y Elite</li><li>Clases, servicios y perfil de coaches</li><li>Calculadora de IMC</li><li>Formulario para agendar visita</li><li>Solicitud de primera semana gratis</li><li>Preguntas frecuentes</li></ul></div><div class="pj-sec"><h4>Beneficios</h4><ul class="chk"><li>Diseño oscuro y llamativo enfocado en conversión</li><li>Llamadas a la acción en todo el recorrido</li></ul></div></div>
+<div class="pj-sec"><h4>Cómo probarlo</h4><ol class="steps"><li>Compara los planes y elige uno.</li><li>Conoce las clases y a los coaches.</li><li>Calcula tu <b>IMC</b> con peso y estatura.</li><li>Pide tu semana gratis o <b>agenda tu visita</b>.</li></ol></div>
+<div class="tags"><span>HTML / CSS</span><span>JavaScript</span></div>
+<a class="btn primary" href="invictus-gym.html" target="_blank" rel="noopener">Abrir INVICTUS GYM ↗</a>
+</div></article>
+<article class="pj reveal" id="pj3">
+<a class="pj-media" href="nova-store.html" target="_blank" rel="noopener" aria-label="Abrir NOVA STORE"><div class="preview"><img class="shot" alt="Vista previa de nova-store" style="object-position:left top" src="prev-nova.jpg"><iframe class="live" data-live="nova-store" title="Vista previa de NOVA STORE" tabindex="-1" aria-hidden="true"></iframe></div><span class="open-badge">Abrir proyecto ↗</span></a>
+<div class="pj-body">
+<header><div><h3>NOVA STORE</h3><p class="pj-tag">Tienda de sneakers</p></div></header>
+<dl class="pj-meta"><div><dt>Industria</dt><dd>Comercio electrónico</dd></div><div><dt>Tipo</dt><dd>Tienda en línea</dd></div></dl>
+<div class="pj-sec"><h4>Qué es</h4><p>Tienda de sneakers con catálogo, filtros, favoritos y carrito. El pedido se envía directo por WhatsApp.</p></div>
+<div class="pj-cols"><div class="pj-sec"><h4>Funciones clave</h4><ul class="chk"><li>Catálogo con filtros por categoría, talla y precio</li><li>Detalle de producto con selección de talla</li><li>Favoritos y carrito de compras</li><li>Compra por WhatsApp</li><li>Guía de tallas y rastreo de pedido</li><li>Preguntas frecuentes</li></ul></div><div class="pj-sec"><h4>Beneficios</h4><ul class="chk"><li>Compra rápida sin registro ni pasarela de pago</li><li>Reduce dudas con guía de tallas y FAQ</li><li>Cierra la venta por el canal que el cliente ya usa</li></ul></div></div>
+<div class="pj-sec"><h4>Cómo probarlo</h4><ol class="steps"><li>Filtra por categoría, <b>talla MX</b> o precio.</li><li>Abre un producto, elige talla y <b>agrégalo al carrito</b>.</li><li>Guarda tus modelos en <b>Favoritos ♥</b>.</li><li>Finaliza con <b>Comprar por WhatsApp</b>.</li></ol></div>
+<div class="tags"><span>HTML / CSS</span><span>JavaScript</span><span>Commerce UX</span></div>
+<a class="btn primary" href="nova-store.html" target="_blank" rel="noopener">Abrir NOVA STORE ↗</a>
+</div></article>
+<article class="pj reveal" id="pj4">
+<a class="pj-media" href="corte-fino.html" target="_blank" rel="noopener" aria-label="Abrir CORTE FINO"><div class="preview"><img class="shot" alt="Vista previa de corte-fino" style="object-position:left top" src="prev-cortefino.jpg"></div><span class="open-badge">Abrir proyecto ↗</span></a>
+<div class="pj-body">
+<header><div><h3>CORTE FINO</h3><p class="pj-tag">Barbería premium</p></div></header>
+<dl class="pj-meta"><div><dt>Industria</dt><dd>Servicios / Belleza</dd></div><div><dt>Tipo</dt><dd>Sitio con sistema de reservas</dd></div></dl>
+<div class="pj-sec"><h4>Qué es</h4><p>Sitio para una barbería donde el cliente agenda su cita sin llamar y el negocio recibe la confirmación por WhatsApp.</p></div>
+<div class="pj-cols"><div class="pj-sec"><h4>Funciones clave</h4><ul class="chk"><li>Reserva por servicio, barbero, día y hora</li><li>Horarios ocupados bloqueados</li><li>Confirmación por WhatsApp</li><li>Sección Mis reservas con cancelación</li><li>Equipo de barberos y opiniones</li><li>Ubicación y contacto</li></ul></div><div class="pj-sec"><h4>Beneficios</h4><ul class="chk"><li>Menos llamadas y citas empalmadas</li><li>Reserva a cualquier hora desde el celular</li><li>Confirmación inmediata</li></ul></div></div>
+<div class="pj-sec"><h4>Cómo probarlo</h4><ol class="steps"><li>Elige <b>servicio</b> y <b>barbero</b>.</li><li>Selecciona el día y una hora disponible.</li><li>Escribe tus datos y toca <b>Confirmar mi reserva</b>.</li><li>Confirma por WhatsApp y revisa <b>Mis reservas</b>.</li></ol></div>
+<div class="tags"><span>JavaScript</span><span>Booking UX</span><span>LocalStorage</span></div>
+<a class="btn primary" href="corte-fino.html" target="_blank" rel="noopener">Abrir CORTE FINO ↗</a>
+</div></article></div>
+</div></section>
+
+<section class="sec" id="experience"><div class="wrap"><h2 class="h2 wipe"><span class="mask"><span class="in-h">Experiencia</span></span><span class="mask"><span class="in-h">en desarrollo.</span></span></h2>
+<div class="xp"><div class="xrow"><time>2 años</time><div><h3>Desarrollo web y aplicaciones</h3><p>Desarrollador independiente. Diseño de interfaces, desarrollo frontend y construcción de experiencias digitales responsive.</p></div></div>
+<div class="xrow"><time>Antes</time><div><h3>Atención al cliente, ventas y operación</h3><p>Experiencia laboral que fortalece mi comunicación, mi organización y mi enfoque en las necesidades de las personas.</p></div></div></div></div></section>
+
+<section class="contact" id="contact"><div class="wrap"><h2 class="h2 wipe"><span class="mask"><span class="in-h">¿Construimos algo</span></span><span class="mask"><span class="in-h">extraordinario?</span></span></h2><a class="mail" href="mailto:axd63455@gmail.com">axd63455@gmail.com</a><p>Abierto a oportunidades laborales, colaboraciones y nuevos retos de desarrollo.</p><div class="cta"><a class="btn ghost mag" href="mailto:axd63455@gmail.com?subject=Oportunidad%20-%20Mi%20Portafolio">Enviar correo</a><a class="btn ghost mag" href="CV_Edwin_Natanael_Benitez_Guerrero.pdf" download>Descargar currículum</a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><span>Mi Portafolio</span><span>Edwin Natanael Benítez Guerrero</span><span>© <i id="year"></i></span></div></footer>
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+/* menu + progress + active link */
+const menu=$('#menu'),links=$('#links');menu.onclick=()=>{const o=links.classList.toggle('open');menu.textContent=o?'✕':'☰';menu.setAttribute('aria-expanded',o)};
+$$('a',links).forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.textContent='☰'}));
+const bar=$('#bar');addEventListener('scroll',()=>{const h=document.documentElement;bar.style.transform=`scaleX(${scrollY/(h.scrollHeight-innerHeight||1)})`},{passive:true});
+const secs=$$('main section[id]'),nav=$$('a',links);
+secs.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)nav.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'}).observe(s));
+/* reveal: headings wipe, skill tiles pop */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+$$('.wipe,.pop').forEach(x=>io.observe(x));
+/* kinetic name */
+const chs=[];$$('.name .ln').forEach(l=>{const t=l.textContent;l.textContent='';[...t].forEach(c=>{const s=document.createElement('span');s.className='ch';s.textContent=c;l.appendChild(s);chs.push(s)})});
+let px=-999,py=-999;const hero=$('#home');
+hero.addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY});hero.addEventListener('pointerleave',()=>{px=py=-999});
+if(!RM){const cen=()=>chs.map(c=>{const r=c.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]});let C=cen();addEventListener('resize',()=>C=cen());addEventListener('scroll',()=>C=cen(),{passive:true});
+const loop=t=>{t/=1000;chs.forEach((c,i)=>{let w=420+250*(.5+.5*Math.sin(t*1.5+i*.7));const dx=px-C[i][0],dy=py-C[i][1],k=Math.exp(-(dx*dx+dy*dy)/(2*150*150));w+= (800-w)*k;c.style.fontVariationSettings=`'wght' ${w|0}`});requestAnimationFrame(loop)};requestAnimationFrame(loop)}
+/* magnetic buttons + tilt tiles + project parallax */
+if(FINE){$$('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
+$$('.lang').forEach(l=>{l.addEventListener('pointermove',e=>{const r=l.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;l.style.setProperty('--ry',x*14+'deg');l.style.setProperty('--rx',-y*14+'deg')});l.addEventListener('pointerleave',()=>{l.style.setProperty('--ry','0deg');l.style.setProperty('--rx','0deg')})});
+$$('.pj-media').forEach(m=>m.addEventListener('pointermove',e=>{const r=m.getBoundingClientRect();m.style.setProperty('--px',((e.clientX-r.left)/r.width-.5)*-16+'px');m.style.setProperty('--py',((e.clientY-r.top)/r.height-.5)*-16+'px')}))}
+/* 3D card: drag freely */
+(function(){const c=$('#idcard');let rx=8,ry=-14,vx=0,vy=0,d=false,lx=0,ly=0,raf=0;const ap=()=>c.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;ap();
+function coast(){vx*=.9;vy*=.9;ry+=vx;rx+=vy;ap();if(Math.abs(vx)>.05||Math.abs(vy)>.05)raf=requestAnimationFrame(coast)}
+c.addEventListener('pointerdown',e=>{d=true;lx=e.clientX;ly=e.clientY;vx=vy=0;cancelAnimationFrame(raf);c.classList.add('drag');try{c.setPointerCapture(e.pointerId)}catch(_){}});
+c.addEventListener('pointermove',e=>{if(!d)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;ry+=dx*.6;rx-=dy*.6;vx=Math.max(-12,Math.min(12,dx*.6));vy=Math.max(-12,Math.min(12,-dy*.6));ap()});
+const end=()=>{if(!d)return;d=false;c.classList.remove('drag');raf=requestAnimationFrame(coast)};c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end);c.addEventListener('dblclick',()=>{rx=8;ry=-14;ap()})})();
+/* live preview of Nova Store */
+(function(){const f=$('iframe.live');if(!f)return;const box=f.parentElement;let loaded=false;const fit=()=>{f.style.transform=`scale(${Math.max(box.clientWidth/1000,box.clientHeight/760)})`};fit();new ResizeObserver(fit).observe(box);
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!loaded){loaded=true;o.disconnect();f.onload=()=>f.classList.add('on');f.src='nova-store.html'}},{rootMargin:'300px'}).observe(box)})();
+$('#year').textContent=new Date().getFullYear();
+</script></body></html>
